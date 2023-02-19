@@ -59,7 +59,8 @@ def imprimirfacturas():
     #iterar es saltar de elemento a elemento dentro de la colección
     
     for n in listadoFacturas:
-        print("---------------{0} {1}".format(n.idfactura, "Factura en colones"))
+        print("---------------")
+        print(n.idfactura, "Factura en colones")
         #casting de dato convirtiendo de numero (int) a cadena de texto (str)
         print("Fecha ",n.fechafactura)
         print("La cateogria de la factura es: ",n.categoriaVenta)
