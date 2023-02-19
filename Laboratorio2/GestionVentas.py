@@ -31,7 +31,7 @@ def crearFactura(montofactura, categoriaVenta):
             global consecutivoFactura
             numFact = str(consecutivoFactura).rjust(5,'0')
             ofactura.idfactura =  formatoConseFact.format(numFact) #"FACT#0001" #Quemar el dato / HardCode
-            ofactura.fechafactura = dt.now    
+            ofactura.fechafactura = dt.now()    
             ofactura.categoriaVenta = categoriaVenta
             ofactura.montofactura = montofactura        
             ofactura.calculaImpuesto()
@@ -59,8 +59,9 @@ def imprimirfacturas():
     #iterar es saltar de elemento a elemento dentro de la colección
     
     for n in listadoFacturas:
-        print("---------------{0} {1}".format(n.idfactura, "factura en colones"))
+        print("---------------{0} {1}".format(n.idfactura, "Factura en colones"))
         #casting de dato convirtiendo de numero (int) a cadena de texto (str)
+        print("Fecha ",n.fechafactura)
         print("La cateogria de la factura es: ",n.categoriaVenta)
         print("Subtotal ","₡",n.montofactura) 
         print("Descuento ","₡",n.descuento)
