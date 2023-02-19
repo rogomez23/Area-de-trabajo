@@ -14,7 +14,7 @@ def encabezadoSistema():
     print("Opción #2 : Imprimir facturas")
     print("----------------------------------")
 
-def crearFactura(montofactura, categoriaVenta):
+def crearFactura(montofactura, categoriaVenta, nombrecliente):
 
     if (categoriaVenta == 'A' or categoriaVenta == 'a' or categoriaVenta == 'B' or categoriaVenta == 'b' or categoriaVenta == 'C' or categoriaVenta == 'c'):
         try:
@@ -33,7 +33,8 @@ def crearFactura(montofactura, categoriaVenta):
             ofactura.idfactura =  formatoConseFact.format(numFact) #"FACT#0001" #Quemar el dato / HardCode
             ofactura.fechafactura = dt.now()    
             ofactura.categoriaVenta = categoriaVenta
-            ofactura.montofactura = montofactura        
+            ofactura.montofactura = montofactura  
+            ofactura.nombreCliente = nombrecliente.strip()      
             ofactura.calculaImpuesto()
             ofactura.montototal = ofactura.impuestofactura + ofactura.montofactura
             ofactura.descuento = ofactura.montofactura * descuento
@@ -63,9 +64,9 @@ def imprimirfacturas():
         print(n.idfactura, "Factura en colones")
         #casting de dato convirtiendo de numero (int) a cadena de texto (str)
         print("Fecha ",n.fechafactura)
+        print("Nombre del cliente: ",n.nombreCliente)
         print("La cateogria de la factura es: ",n.categoriaVenta)
         print("Subtotal ","₡",n.montofactura) 
         print("Descuento ","₡",n.descuento)
         print("Impuesto ","₡",round(n.impuestofactura,5))
         print("Total ","₡",(n.montofactura-n.descuento)+n.impuestofactura)
-        

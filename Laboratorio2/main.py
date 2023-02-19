@@ -5,7 +5,8 @@ from Dominio import Factura
 def registrarfactura():
     monto = float(input("Digitar el monto de la factura: "))
     categoria = str(input("Indique la categoria del producto: "))
-    gv.crearFactura(montofactura=monto,categoriaVenta=categoria)
+    nombre = str(input("Ingrese el nombre del cliente: "))
+    gv.crearFactura(montofactura=monto,categoriaVenta=categoria,nombrecliente=nombre)
    
 def imprimirfacturas():
     gv.imprimirfacturas()
